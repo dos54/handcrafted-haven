@@ -6,3 +6,4 @@ Group repo for team 4, wdd 430. Handcrafted Haven website
 - Vermont Garcia Serrano
 - Ernest Ojakol
 - Prince Ogbonnaya Nwachukwu
+Test
