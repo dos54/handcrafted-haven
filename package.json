@@ -17,6 +17,9 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.5",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4"
