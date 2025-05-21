@@ -1,8 +1,9 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export default async function Home() {
-
   return (
-    <p>Hello, there!</p>
+    <main>
+      <h1>Hello, there!</h1>
+    </main>
   );
 }
