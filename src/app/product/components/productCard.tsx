@@ -1,0 +1,38 @@
+import Link from "next/link"
+
+interface product{
+    id: number,
+    userId: string,
+    product_name: string,
+    price: number,
+    img: string,
+    hover_img: string,
+}
+
+export default function ProductCard({id, userId, product_name, price, img, hover_img}: product){
+    return(
+        <>
+            <div className="w-full max-w-[16rem] relative mb-20 bg-[#FFFFFF] p-3 shadow-lg rounded-lg md:w-72 shadow-lg">
+                <div className="relative w-full h-50 group overflow-hidden rounded-t-md">
+                    <img 
+                        src={img} alt={product_name}
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"                    
+                    />
+                    <img 
+                        src={hover_img} alt={product_name}
+                        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"
+                    />
+                </div>
+                <p className="absolute top-5 right-5 bg-red-700 rounded-lg p-2 text-gray-100">${price.toLocaleString()}</p>
+                <div className="mt-2 relative  p-1 bg-gray-100 rounded-b-lg">
+                    <p className="text-gray-800 font-black font-mono">{product_name}</p>
+                    <Link className="absolute right-2 top-1 text-gray-400 underline" href={`/product/product-details/${id}`}>view</Link>
+                    <small className="text-gray-500 font-mono underline hover:text-gray-700"><a href={`mailto:${userId}`}>{userId}</a></small>
+                    <button className="text-white mt-6 mb-2 p-2 rounded-full font-semibold w-full bg-gray-700  cursor-pointer hover:bg-green-500 duration-200 ease=in-out">Buy</button>
+                </div>
+            </div>
+        
+        </>
+    )
+
+}
