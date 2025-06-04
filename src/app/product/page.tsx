@@ -3,6 +3,8 @@ import ProductUi from "./components/productUi";
 
 export default function Products(){
     return(
-       <ProductUi/>
+        <div className="max-w-[90vw] mx-auto">
+            <ProductUi/>
+        </div>
     )
 }

@@ -28,6 +28,7 @@ export default function RootLayout({ children }: MyProps) {
   return (
     <html lang="en">
       <head>
+        {/*Prince added this for fa-fa font styles */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       </head>
       <body
