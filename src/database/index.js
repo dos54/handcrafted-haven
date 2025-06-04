@@ -15,10 +15,10 @@ let cached = global.mongoose || { conn: null, promise: null }
 
 export async function connectToDatabase() {
   if (cached.conn) return cached.conn
-  
+
   if (!cached.promise) {
     cached.promise = mongoose.connect(MONGODB_URI, {
-      bufferCommands: false
+      bufferCommands: false,
     })
   }
 
