@@ -56,9 +56,9 @@ export default function TopTenLikes() {
                 ref={scrollRef}
                 className="py-5 px-3 overflow-x-auto border-x-3 shadow-lg border-gray-100 mx-1 mt-5 md:mx-15 md:mt-10 flex gap-4 md:gap-10 justify-start items-start md:overflow-x-hidden scroll-smooth"
             >
-                {topProducts.map((top) => (
+                {topProducts.map((top, idx) => (
                     <TopProductCard 
-                        key={top.id}
+                        key={idx}
                         id={top.id} 
                         userId={top.userId} 
                         product_name={top.product_name} 

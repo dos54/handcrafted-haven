@@ -1,6 +1,10 @@
-import { isValidObjectId } from "mongoose";
+"use server"
+
+import mongoose, { isValidObjectId , Types } from "mongoose";
 import User from "../models/user";
 import { connectToDatabase } from "@/database";
+import { GenReview, Review } from "@/app/product/data/productsList";
+import { GeneralReview, ReviewSchema } from "../models/productReview";
 
 /** Returns a read-only User object. */
 export async function getUserByEmailForRead(email: string) {
@@ -27,3 +31,51 @@ export async function updateUserEmail(userId: string, newEmail: string) {
   user.email = newEmail
   await user.save()
 }
+
+// General Rewivew part...this this only for the productListing page review Do not use or modify
+export async function addGeneralReview(formData: GenReview){
+  try {
+    await connectToDatabase()
+    const newReview = new GeneralReview(formData)
+    return newReview.save()
+
+  } catch (error) {
+    console.error("Failed to add review:", error);
+  }
+}
+
+// Getting General Rewivew for Product listing page...this only for the product page review Do not use or modify
+export async function getGeneralReviews() {
+  await connectToDatabase();
+  const genReview = await GeneralReview.find().lean(); 
+  return genReview;
+}
+
+
+export async function productReview(formData: Review, id: string) {
+  try {
+    if (!Types.ObjectId.isValid(id)) {
+      throw new Error("Invalid product ID");
+    }
+
+    const productId = new Types.ObjectId(id); // convert string to ObjectId
+    await connectToDatabase();
+
+    const newReview = new ReviewSchema({
+      ...formData,
+      productId, 
+    });
+
+    return await newReview.save();
+  } catch (error) {
+    console.error("Failed to add review:", error);
+  }
+}
+
+export async function getProductReviews(productId: string) {
+  await connectToDatabase();
+  const prodReview = await ReviewSchema.findOne({productId}).lean(); 
+  return prodReview;
+}
+
+

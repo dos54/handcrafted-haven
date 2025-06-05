@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
 
-const ReviewSchema = new mongoose.Schema({
+
+const ReviewSchemas = new mongoose.Schema({
   productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  rating: { type: Number, required: true },
-  comment: { type: String },
+  stars: { type: Number,  default: 0},
+  comment: { type: String, required: true},
 }, { timestamps: true });
 
 
 const GenReviewShema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   username: {type: String, required: true},
-  rating: { type: Number },
+  stars: { type: Number },
   comment: { type: String },
 }, { timestamps: true });
 
@@ -24,7 +24,7 @@ const ProductLikesSchema = new mongoose.Schema({
 
 
 
-export const Review = mongoose.models.Review || mongoose.model("Review", ReviewSchema);
+export const ReviewSchema = mongoose.models.Review || mongoose.model("Review", ReviewSchemas);
 export const ProductLike = mongoose.models.ProductLike || mongoose.model("ProductLike", ProductLikesSchema);
-export const GeneralReview = mongoose.models.Review || mongoose.model("GeneralReview", GenReviewShema);
+export const GeneralReview = mongoose.models.GeneralReview || mongoose.model("GeneralReview", GenReviewShema);
 

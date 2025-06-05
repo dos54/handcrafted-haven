@@ -3,11 +3,9 @@ export interface Review {
   id: number;
   stars: number;
   comment: string;
-  date?: string;
 }
 
 export interface GenReview {
-  id: number;
   username: string;
   stars: number;
   comment: string;
@@ -15,7 +13,7 @@ export interface GenReview {
 }
 
 export interface Product {
-  id: number;
+  id: string;
   userId: string;
   product_name: string;
   price: number;
@@ -29,9 +27,9 @@ export interface Product {
 
 export const ProductList : Product[] = [
     {
-        id: 1,
+        id: "665f5b2a4b4f3a71e9d5d811",
         userId: "trial@gmail.com",
-        product_name: "Product name",
+        product_name: "Product Test",
         price: 5000,
         img: "/earpod2.jpg",
         thumbnail_img: [
@@ -65,9 +63,9 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 2,
+        id: "665f5b2a4b4f3a71e9d5d812",
         userId: "trial@gmail.com",
-        product_name: "Product name",
+        product_name: "Product Test",
         price: 5000,
         img: "/earpod.jpg",
         thumbnail_img: [
@@ -86,7 +84,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 3,
+        id: "665f5b2a4b4f3a71e9d5d813",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -108,7 +106,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 4,
+        id: "665f5b2a4b4f3a71e9d5d814",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -125,7 +123,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 5,
+        id: "665f5b2a4b4f3a71e9d5d815",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -157,7 +155,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 6,
+        id: "665f5b2a4b4f3a71e9d5d816",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -174,7 +172,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 7,
+        id: "665f5b2a4b4f3a71e9d5d817",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -206,7 +204,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 8,
+        id: "665f5b2a4b4f3a71e9d5d818",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -233,7 +231,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 9,
+        id: "665f5b2a4b4f3a71e9d5d819",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -260,7 +258,7 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 10,
+        id: "665f5b2a4b4f3a71e9d5d810",
         userId: "trial@gmail.com",
         product_name: "Product name",
         price: 5000,
@@ -296,9 +294,9 @@ export const ProductList : Product[] = [
         ]
     },
     {
-        id: 11,
+        id: "665f5b2a4b4f3a71e9d5d111",
         userId: "trial@email.com",
-        product_name: "Product name",
+        product_name: "Product Test",
         price: 5000,
         img: "/earpod.jpg",
         thumbnail_img: [
@@ -336,20 +334,15 @@ export const ProductList : Product[] = [
 
 export const GeneralReview : GenReview[] = [
     { 
-        id: 1,
         username: "Prince",
         stars: 5,
         comment: "I love this product its very nice"
     },
-    {
-        id:2,
-        username: "Mike",
+    {        username: "Mike",
         stars: 2,
         comment: "I dont like this type of color"
     },
-    {
-        id:3,
-        username: "Johnson",
+    {        username: "Johnson",
         stars: 5,
         comment: "Very useuful product"
     },
