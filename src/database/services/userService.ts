@@ -52,6 +52,7 @@ export async function getGeneralReviews() {
 }
 
 
+//This is for adding review 
 export async function productReview(formData: Review, id: string) {
   try {
     if (!Types.ObjectId.isValid(id)) {
@@ -72,6 +73,7 @@ export async function productReview(formData: Review, id: string) {
   }
 }
 
+//this is getting the review
 export async function getProductReviews(productId: string) {
   await connectToDatabase();
   const prodReview = await ReviewSchema.findOne({productId}).lean(); 
