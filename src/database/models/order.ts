@@ -5,7 +5,7 @@ Date: June 4, 2025
 Purpose: Define the Order schema.
 ===============================================*/
 import mongoose from "mongoose";
-import OrderItemSchema from './order-item.ts';
+import OrderItemSchema from './order-item';
 
 
 const OrderSchema = new mongoose.Schema({
