@@ -5,28 +5,23 @@ Date: June 4, 2025
 Purpose: Define the Seller Order schema.
 ===============================================*/
 import mongoose from "mongoose";
-import {OrderItemSchema} from './orderItem.js';
-
+import { OrderItemSchema } from './order-item.ts';
+import { AddressSchema } from './address.ts';
 
 const SellerOrderSchema = new mongoose.Schema({
-    customerId: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
-    }
-   ],
-  //  review
-  orderItems: [OrderItem],
-  shippingAddress: {
-    fullName: String,
-    street: String,
-    city: String,
-    state: String,
-    postalCode: String,
-    country: String,
-    phone: String,
+  customerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
   },
-  totalSalePrice:{type: mongoose.Schema.Types.Decimal128},
-})
+  orderItems: [OrderItemSchema],
+  shippingAddress: AddressSchema,
+  totalSalePrice: {
+    type: mongoose.Schema.Types.Decimal128,
+    min: 0
+  }
+}, {
+  timestamps: true
+});
 
-export default mongoose.models.Seller || mongoose.model('Seller', SellerOrderSchema)
+export default mongoose.models.Seller || mongoose.model('Seller', SellerOrderSchema);
