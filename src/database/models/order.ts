@@ -5,22 +5,34 @@ Date: June 4, 2025
 Purpose: Define the Order schema.
 ===============================================*/
 import mongoose from "mongoose";
-import {OrderItemSchema} from './orderItem.js';
+import { OrderItemSchema } from './order-item.ts';
 
 
 const OrderSchema = new mongoose.Schema({
-   userId:[
+   userId:
        {
          type: mongoose.Schema.Types.ObjectId,
          ref: 'User'
-       }
-      ],
-     orderItems: [OrderItem],
-    shippingCost:{type: mongoose.Schema.Types.Decimal128},
-    total:{type: mongoose.Schema.Types.Decimal128},
-    createdAt :{type : Date},
-    status: {enum: ['pending', 'paid', 'shipped', 'cancelled'],
-             require :true}
-})
+       },
+   orderItems: [OrderItemSchema],
+   shippingCost:{
+      type: mongoose.Schema.Types.Decimal128,
+      min: 0
+   },
+   total:{
+      type: mongoose.Schema.Types.Decimal128,
+      min: 0
+   },
+   createdAt :{type : Date},
+   status: {
+      type: String,
+      enum: ['pending', 'paid', 'shipped', 'cancelled'],
+      required:true
+   }
+},
+ {
+   timestamps: true
+ }
+)
 
 export default mongoose.models.Order|| mongoose.model('Order', OrderSchema)
