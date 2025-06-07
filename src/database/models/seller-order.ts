@@ -5,8 +5,8 @@ Date: June 4, 2025
 Purpose: Define the Seller Order schema.
 ===============================================*/
 import mongoose from "mongoose";
-import OrderItemSchema from './order-item.ts';
-import AddressSchema from './address.ts';
+import OrderItemSchema from './order-item';
+import AddressSchema from './address';
 
 const SellerOrderSchema = new mongoose.Schema({
   customerId: {
