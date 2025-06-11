@@ -1,15 +1,17 @@
-"use server"
-
 import ProductIdReviewForm from "../components/productIdreveiwForm";
 import { getProductReviews } from "@/database/services/userService";
 import Link from "next/link";
 
-export default async function ProductDetails({ params }: { params: { id: string } }) {
-
-  const productId = params.id;
 
 
-  const reviews  = await getProductReviews(productId)
+export default async function ProductDetails({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params
+
+  const reviews  = await getProductReviews(id)
   const reviewArray = Array.isArray(reviews) ? reviews : [reviews];
 
   console.log(reviews)
@@ -25,8 +27,8 @@ export default async function ProductDetails({ params }: { params: { id: string 
     )
   }
 
-  
-    return (
+
+  return (
     <div className="max-w-5xl mx-auto p-4 md:p-10">
       {/* Pass productId down so the form knows where to save */}
       <ProductIdReviewForm/>
