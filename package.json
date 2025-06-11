@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.826.0",
-    "file-type": "^21.0.0",
     "axios": "^1.9.0",
+    "file-type": "^21.0.0",
     "mongoose": "^8.15.0",
     "next": "15.3.2",
     "react": "^19.1.0",
@@ -28,5 +28,5 @@
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4.1.7"
   },
-  "packageManager": "pnpm@10.11.1"
+  "packageManager": "pnpm@10.12.1"
 }
