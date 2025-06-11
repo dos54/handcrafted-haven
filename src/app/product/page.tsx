@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import GeneralReviewUi from "./components/generalReviews";
 import ProductYoutube from "./components/productYoutube";
 import TopTenLikes from "./components/topProducts";
@@ -31,7 +32,7 @@ export default function Products(){
                 {/* Contact */}
                 <div className="review mt-14 md:mt-0 w-full h-full md:h-110 p-3 md:flex justify-center rounded-lg items-end">
                     <div className="text-center md:mx-2 w-24 h-24 rounded-full border-2 border-white overflow-hidden">
-                        <img className="w-full object-center cover mixauto" src="/images_holder.png" alt="Site Onwer's picture" />
+                        <Image className="w-full object-center cover mixauto" src="/images_holder.png" alt="Site Onwer's picture" />
                     </div>
 
                     <div className="mx-auto md:mx-2 px-6 py-2 rounded-lg border-2 border-white text-white bg-[rgba(0,0,0,0.7)]">
