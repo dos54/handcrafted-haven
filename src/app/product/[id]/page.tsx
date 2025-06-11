@@ -4,15 +4,17 @@ import ProductIdReviewForm from "../components/productIdreveiwForm";
 import { getProductReviews } from "@/database/services/userService";
 import Link from "next/link";
 
-export default async function ProductDetails({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
 
+export default async function ProductDetails({ params }: PageProps) {
   const productId = params.id;
 
-
-  const reviews  = await getProductReviews(productId)
+  const reviews = await getProductReviews(productId);
   const reviewArray = Array.isArray(reviews) ? reviews : [reviews];
-
-  console.log(reviews)
 
   if (!reviews) {
     return (
@@ -22,14 +24,12 @@ export default async function ProductDetails({ params }: { params: { id: string 
           <Link className="underline text-blue-500 p-2 hover:text-blue-700" href={"/product"}>Go Back</Link>
         </div>
       </div>
-    )
+    );
   }
 
-  
-    return (
+  return (
     <div className="max-w-5xl mx-auto p-4 md:p-10">
-      {/* Pass productId down so the form knows where to save */}
-      <ProductIdReviewForm/>
+      <ProductIdReviewForm />
 
       <div className="mt-10 bg-green-100 p-1 md:p-3 rounded-sm">
         <h2 className="p-3 text-xl text-white font-semibold mb-4 bg-green-700 rounded-sm">
@@ -57,5 +57,4 @@ export default async function ProductDetails({ params }: { params: { id: string 
       </div>
     </div>
   );
-
 }
