@@ -21,13 +21,16 @@ export async function getUserByEmailForUpdate(email: string) {
 export async function getUserByIdForUpdate(userId: string) {
   await connectToDatabase()
   if (isValidObjectId(userId)) {
-    return await User.findOne({_id: userId})
+    return await User.findById(userId)
   }
   else throw new Error('Invalid user ID')
 }
 
 export async function updateUserEmail(userId: string, newEmail: string) {
   const user = await getUserByIdForUpdate(userId)
+  if (!user) {
+    throw new Error(`User with ID ${userId} not found`)
+  }
   user.email = newEmail
   await user.save()
 }
