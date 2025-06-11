@@ -1,6 +1,5 @@
 import Link from "next/link";
 import GeneralReviewUi from "./components/generalReviews";
-import ProductYoutube from "./components/productYoutube";
 import TopTenLikes from "./components/topProducts";
 import ContactProducers from "./components/contactProducers";
 import ReviewForm from "./components/reviewForm";

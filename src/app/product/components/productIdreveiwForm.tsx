@@ -76,7 +76,7 @@ export default function ProductIdReviewForm(){
                 stars: formData.stars
             }
 
-            //productReview(newReview, id as string)
+            productReview(newReview, id as string)
 
             setReview((prev)=>([newReview, ...prev]))
             //const {data} = await axios.post(newReview)
@@ -111,9 +111,10 @@ export default function ProductIdReviewForm(){
                 <div className="flex-1 relative group">
                 <div className="relative">
                     <Image
-                    src={mainImage}
-                    alt={product.product_name}
-                    className="rounded-lg w-full h-72 md:h-[400px] object-cover transition duration-300"
+                        src={mainImage}
+                        alt={product.product_name}
+                        className="rounded-lg w-full h-72 md:h-[400px] object-cover transition duration-300"
+                        fill
                     />
                     {/* Product Likes */}
                     <div className="absolute bottom-5 right-5 text-gray-500 font-[cursive] text-[25px]"><i onClick={handleLike} className={`fa fa-heart ${isLiked ? "text-red-600 transform delay-200 ease-in-out":"transform delay-300 ease-in-out"}`}></i><span className="text-[15px]"> {likes}</span></div>
@@ -192,6 +193,7 @@ export default function ProductIdReviewForm(){
                         mainImage === img ? "border-green-600" : "border-transparent"
                         }`}
                         alt={`Thumbnail ${index + 1}`}
+                        fill
                     />
                     ))}
                 </div>

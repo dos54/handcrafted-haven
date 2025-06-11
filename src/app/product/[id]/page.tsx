@@ -1,13 +1,19 @@
+"use server"
+
 import ProductIdReviewForm from "../components/productIdreveiwForm";
 import { getProductReviews } from "@/database/services/userService";
 import Link from "next/link";
 
-export default async function ProductDetails({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string;
+  };
+}
 
+export default async function ProductDetails({ params }: { params: { id: string } }) {
   const productId = params.id;
 
-
-  const reviews  = await getProductReviews(productId)
+  const reviews = await getProductReviews(productId);
   const reviewArray = Array.isArray(reviews) ? reviews : [reviews];
 
   if (!reviews) {
@@ -21,8 +27,7 @@ export default async function ProductDetails({ params }: { params: { id: string 
     );
   }
 
-  
-    return (
+  return (
     <div className="max-w-5xl mx-auto p-4 md:p-10">
       <ProductIdReviewForm />
 

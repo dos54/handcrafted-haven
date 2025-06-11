@@ -23,14 +23,16 @@ export function ProductCard({id, userId, product_name, price, img, hover_img, li
     return(
         <>
             <div className="w-full max-w-[16rem] relative mb-20 bg-[#FFFFFF] p-3 shadow-lg rounded-lg md:w-72 shadow-lg">
-                <div className="relative w-full h-50 group overflow-hidden rounded-t-md">
+                <div className="relative w-full h-60 group overflow-hidden rounded-t-md">
                     <Image 
                         src={img} alt={product_name}
-                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"                    
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" 
+                        fill                  
                     />
                     <Image 
                         src={hover_img} alt={product_name}
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"
+                        fill
                     />
                 </div>
                 <p className="absolute top-5 right-5 bg-red-700 rounded-lg p-2 text-gray-100">${price.toLocaleString()}</p>
@@ -60,6 +62,8 @@ export function TopProductCard({id, userId, product_name, img, likes}: Topproduc
                         className="w-full object-contain hover:scale-110 transition-transform duration-500 ease-in-out"
                         src={img}
                         alt={product_name}
+                        width={200}
+                        height={250}
                     />
                 </div>
 
