@@ -1,0 +1,14 @@
+
+/* Review */
+.review{
+  background-image: url("/im.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  background-color: #9292a7;
+}
+@media (max-width: 780px) {
+  .review{
+    background-size: cover;
+  }
+}

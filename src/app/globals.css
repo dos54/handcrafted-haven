@@ -29,3 +29,13 @@ body {
   display: grid;
   grid-template-columns:72px 1fr;
 }
+
+@media (max-width: 780px) {
+  .main-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr;
+    justify-items: center;
+    align-items: center;
+  }
+}
