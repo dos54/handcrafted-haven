@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useParams } from "next/navigation";
@@ -12,7 +13,7 @@ export default function ProductIdReviewForm(){
     const id = params.id;
     const product = ProductList.find((P) => P.id === id);
 
-    const[mainImage, setMainImage] = useState(product?.img);
+    const[mainImage, setMainImage] = useState(product?.img || "/earpod.jpg");
     const[reviews, setReview] = useState(product?.reviews || [])
 
     const[msg, setMsg] = useState("");
@@ -109,7 +110,7 @@ export default function ProductIdReviewForm(){
                 {/* Product Image */}
                 <div className="flex-1 relative group">
                 <div className="relative">
-                    <img
+                    <Image
                     src={mainImage}
                     alt={product.product_name}
                     className="rounded-lg w-full h-72 md:h-[400px] object-cover transition duration-300"
@@ -183,7 +184,7 @@ export default function ProductIdReviewForm(){
                 {/* Thumbnail Images */}
                 <div className="w-full overflow-x-auto p-1 bg-gray-100 rounded-lg flex justify-center gap-4 whitespace-nowrap gap-4">
                     {product.thumbnail_img.map((img, index) => (
-                    <img
+                    <Image
                         key={index}
                         src={img}
                         onClick={() => setMainImage(img)}

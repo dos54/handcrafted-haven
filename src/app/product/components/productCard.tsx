@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 interface product{
     id: string,
@@ -23,11 +24,11 @@ export function ProductCard({id, userId, product_name, price, img, hover_img, li
         <>
             <div className="w-full max-w-[16rem] relative mb-20 bg-[#FFFFFF] p-3 shadow-lg rounded-lg md:w-72 shadow-lg">
                 <div className="relative w-full h-50 group overflow-hidden rounded-t-md">
-                    <img 
+                    <Image 
                         src={img} alt={product_name}
                         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"                    
                     />
-                    <img 
+                    <Image 
                         src={hover_img} alt={product_name}
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"
                     />
@@ -55,7 +56,7 @@ export function TopProductCard({id, userId, product_name, img, likes}: Topproduc
             <div className="w-full h-full relative bg-white p-3 shadow-lg rounded-lg">
 
                 <div className="relative w-full h-full overflow-hidden rounded-t-md">
-                    <img
+                    <Image
                         className="w-full object-contain hover:scale-110 transition-transform duration-500 ease-in-out"
                         src={img}
                         alt={product_name}
