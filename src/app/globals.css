@@ -12,12 +12,12 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
@@ -29,6 +29,7 @@ body {
   display: grid;
   grid-template-columns:72px 1fr;
 }
+
 
 .site-header {
   background-color: #ffffff;
@@ -69,4 +70,14 @@ body {
 .cart-link:hover,
 .logo:hover {
   opacity: 0.8;
+}
+
+@media (max-width: 780px) {
+  .main-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns:1fr;
+    justify-items: center;
+    align-items: center;
+  }
 }

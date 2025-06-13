@@ -9,20 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.826.0",
+    "axios": "^1.9.0",
+    "file-type": "^21.0.0",
     "mongoose": "^8.15.0",
     "next": "15.3.2",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "sharp": "^0.34.2",
+    "slugify": "^1.6.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.7",
-    "@types/mongoose": "^5.11.97",
     "@types/node": "^22.15.21",
     "@types/react": "^19.1.5",
     "eslint": "^9.27.0",
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4.1.7"
   },
-  "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
+  "packageManager": "pnpm@10.12.1"
 }
