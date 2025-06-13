@@ -29,3 +29,44 @@ body {
   display: grid;
   grid-template-columns:72px 1fr;
 }
+
+.site-header {
+  background-color: #ffffff;
+  padding: 15px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.cart-img {
+  height: 30px;
+  width: auto;
+}
+
+.logo,
+.cart-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cart-link:hover,
+.logo:hover {
+  opacity: 0.8;
+}
