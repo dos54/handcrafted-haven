@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios"; //Very important import, for axios to work
 
+
 type ProductFormType = {
     productname: string;
     price: number;
@@ -85,6 +86,7 @@ export default function AddProductUi(){
 
             //Emptying the inputs for another freesh data entry
             setProductForm({productname:"", price: 0, description:"", productPicture:"", category:"", quantity:0,})
+            setProdImg("")
 
             //scroll up to the top of the window to show success or error message
             window.scroll({top: 0, behavior:"smooth"})
@@ -230,19 +232,31 @@ export default function AddProductUi(){
                 </ul>
                 <div className="grid grid-cols-2 justify-center items-center gap-2">
                     <div className="object-cover  overflow-hidden rounded-sm">
-                        <img className="w-full" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIULsufnaaKvcz27CNUbNbyzzyXrmGYfdSyg&s"} alt="art" />
+                        <Image
+                        width={300}
+                        height={300}
+                        className="w-full" src={"/sample_image1.jpeg"} alt="art" />
                     </div>
 
-                   <div className=" overflow-hidden rounded-sm"  >
-                        <img className="w-full" src="https://www.globaltimes.cn/Portals/0/attachment/2021/2021-01-31/64cce0e7-d863-47ff-b137-5b703e461a44.jpeg" alt="art" />
-                   </div>
+                    <div className=" overflow-hidden rounded-sm"  >
+                        <Image
+                        width={300}
+                        height={300}
+                        className="w-full" src={"/sample_image2.jpeg"} alt="art" />
+                    </div>
                     <div className=" overflow-hidden rounded-sm">
-                        <img className="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZPAPAJw_g4vu5DbGk7M8IcQMKx0WDfF3MYA&s" alt="art" />
+                        <Image
+                        width={300}
+                        height={300}
+                        className="w-full" src={"/sample_image3.jpeg"} alt="art" />
                     </div>
 
-                   <div className=" overflow-hidden rounded-sm"  >
-                        <img className="w-full" src="https://images.stockcake.com/public/5/1/d/51d39647-5f3c-41cb-928e-b867c60a9efc_large/artisan-carving-craft-stockcake.jpg" alt="art" />
-                   </div>
+                    <div className=" overflow-hidden rounded-sm"  >
+                        <Image
+                        width={300}
+                        height={300}
+                        className="w-full" src={"/sample_image4.webp"} alt="art" />
+                    </div>
                 </div>
             </div>
         </div>

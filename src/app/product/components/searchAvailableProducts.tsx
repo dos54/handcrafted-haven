@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ProductList } from "../data/productsList";
+///import { ProductList } from "../data/productsList";
 import { ProductCard } from "./productCard";
 import ProductYoutube from "./productYoutube";
 import axios from "axios";

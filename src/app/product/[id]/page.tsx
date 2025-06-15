@@ -84,6 +84,8 @@ export default function ProductDetails() {
     try {
         
       const {data} = await axios.post("/api/product-review", formData)
+      setFormData({productId: id, comment: "", stars: 0, likes: 0,})
+
       setMsg("Thank you for the Comment!!")
       setTimeout(()=>{
         setMsg("")
@@ -146,8 +148,8 @@ export default function ProductDetails() {
     <div className="flex flex-col md:flex-row gap-8">
       {/* Product Image */}
       {product ? (
-        <div className="p-2 md:p-5 my-4 md:my-10 mx-auto grid md:grid-cols-2 gap-3 justify-center items-start relative group">
-          <div>
+        <div className="p-2 md:p-5 my-4 md:my-10 mx-auto grid md:flex flex-col md:flex-row justify-center gap-4 items-start relative group">
+          <div className="flex-1">
             <div className="max-w-[30rem] max-h-[30rem] mb-1 relative bg-gray-400 overflow-hidden rounded-md">
               {product?.productPicture ? (
                 <Image
@@ -210,7 +212,7 @@ export default function ProductDetails() {
           </div>
 
           {/* Product Info */}
-          <div className="flex-1 space-y-4 overflow-x-auto">
+          <div className="flex-1 max-w-[35rem] space-y-4 overflow-x-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-green-700">
               {product?.productname}
             </h1>
