@@ -1,17 +1,47 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProductList } from "../data/productsList";
 import { ProductCard } from "./productCard";
 import ProductYoutube from "./productYoutube";
+import axios from "axios";
+
+type Product = {
+  _id: string;
+  //userId?: string; uncomment when there is a user Login
+  productname: string;
+  price: number;
+  productPicture: string;
+  quantity: number;
+  category: string;
+  description: string;
+  likes?: number;
+};
+
 
 export default function SearchAvailableProducts() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [productList, setProductList] =  useState<Product[]>([]); //product list
 
-  const filteredProducts = ProductList.filter((prod) =>
-    prod.product_name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(()=>{
+    async function getProducs() {
+        try {
+            const {data} = await axios.get("/api/product")
+            setProductList(data);
+            console.log(data)
+        } catch (error) {
+            console.error("Failed to fetch products:", error);
+        }
+    }
 
+    getProducs();
+  }, [])
+  
+
+    const filteredProducts = productList.filter((prod) =>
+        prod.productname && prod.productname.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  
   return (
     <div>
         {/* Search Input */}
@@ -37,14 +67,14 @@ export default function SearchAvailableProducts() {
             {filteredProducts.length > 0 ? (
             filteredProducts.map((prod) => (
                 <ProductCard
-                key={prod.id}
-                id={prod.id}
-                userId={prod.userId}
-                product_name={prod.product_name}
+                key={prod._id}
+                id={`${prod._id}`}
+                userId={""} //update when a user
+                product_name={prod.productname}
                 price={prod.price}
-                img={prod.img}
-                hover_img={prod.hover_img}
-                likes={prod.likes}
+                img={prod.productPicture}
+                hover_img={"/earpod.jpg"}
+                likes={4}
                 />
             ))
             ) : (
