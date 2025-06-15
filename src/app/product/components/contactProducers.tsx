@@ -5,7 +5,7 @@ export default function ContactProducers(){
         
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {/* Contact Card - Prince */}
-                <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div className="bg-white md:p-5 p-2 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 className="text-lg font-semibold text-gray-800">Prince</h3>
                     <a
                         href="mailto:princenwachukwu308@gmail.com"
@@ -16,7 +16,7 @@ export default function ContactProducers(){
                 </div>
 
                 {/* Contact Card - Nadia */}
-                <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div className="bg-white md:p-5 p-2 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 className="text-lg font-semibold text-gray-800">Nadia</h3>
                     <a
                         href="mailto:nadiaaa3@gmail.com"
@@ -27,7 +27,7 @@ export default function ContactProducers(){
                 </div>
 
                 {/* Contact Card - Steven */}
-                <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div className="bg-white md:p-5 p-2 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 className="text-lg font-semibold text-gray-800">Steven</h3>
                     <a
                         href="mailto:steven@example.com"
@@ -38,7 +38,7 @@ export default function ContactProducers(){
                 </div>
 
                 {/* Contact Card - Ernest */}
-                <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div className="bg-white md:p-5 p-2 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 className="text-lg font-semibold text-gray-800">Ernest</h3>
                     <a
                         href="mailto:ernestN@example.com"
@@ -49,7 +49,7 @@ export default function ContactProducers(){
                 </div>
 
                 {/* Contact Card - Vermont */}
-                <div className="bg-white p-5 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <div className="bg-white md:p-5 p-2 rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     <h3 className="text-lg font-semibold text-gray-800">Vermont</h3>
                     <a
                         href="mailto:vermontG@example.com"
