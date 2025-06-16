@@ -1,30 +1,40 @@
 import NavItem from './nav-item';
+//import { useState } from 'react';
+import '../sidebar.css'
 
 const links = [
   {
-    id: '1234',
-    label: 'Home',
-    href: '/',
+    id: '1',
+    label: 'Login',
+    href: '/login',
   },
   {
-    id: '5678',
-    label: 'Link 2',
-    href: '/',
+    id: '2',
+    label: 'Products',
+    href: '/products',
   },
   {
-    id: '91011',
-    label: 'Link 3',
-    href: '/',
+    id: '3',
+    label: 'Add Products',
+    href: '/add-products'
+  },
+  {
+    id: '4',
+    label: 'Profile',
+    href:`/profile/666abc123def456789012345`
   },
 ];
 
 const Navigation = () => {
+  //const [role] = useState<'buyer' | 'seller' | null>(null);
+
   return (
-    <nav>
+    <nav className="sidebar">
       <ul>
-        {links.map(({ id, label, href }) => (
-          <NavItem label={label} key={id} href={href} />
-        ))}
+        {links.map(({ id, label, href}) => {
+          //if (condition && !condition(role)) return null;
+          return <NavItem key={id} label={label} href={href} />;
+        })}
       </ul>
     </nav>
   );
