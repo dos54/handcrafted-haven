@@ -11,17 +11,15 @@ const mulish = Mulish({
   weight: '400',
 });
 
-
-export default async function ProfileComponent({
-  profile }: {
-  profile: {
+type Profile = {
     userId: string;
     bio: string;
     favorites: string[];
     following: string[];
     purchaseHistory:string[]
-  };
-}) {
+}
+
+export default async function ProfileComponent({ profile }: { profile: Profile }) {
   if (!profile) {
     return <p className={mulish.className}>No profile data available.</p>;
   }
