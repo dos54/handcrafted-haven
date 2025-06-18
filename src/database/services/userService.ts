@@ -1,10 +1,12 @@
 "use server"
 
-import mongoose, { isValidObjectId , Types } from "mongoose";
+import mongoose, { isValidObjectId , ObjectId, Types } from "mongoose";
 import User from "../models/user";
 import { connectToDatabase } from "@/database";
 import { GenReview, Review } from "@/app/product/data/productsList";
 import { GeneralReview, ReviewSchema } from "../models/productReview";
+import Product from "@/database/models/product"
+
 
 /** Returns a read-only User object. */
 export async function getUserByEmailForRead(email: string) {
@@ -81,6 +83,17 @@ export async function getProductReviews(productId: string) {
   await connectToDatabase();
   const prodReview = await ReviewSchema.findOne({productId}).lean(); 
   return prodReview;
+}
+
+// Getting the products for each of the userID
+
+export async function getProductByUserId(email: string) {
+  await connectToDatabase();
+
+  const user = await User.findOne({ email: email.trim().toLowerCase() });
+  if (!user) return [];
+
+  return await Product.find({ userId:user._id })
 }
 
 

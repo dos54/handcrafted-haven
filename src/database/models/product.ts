@@ -7,9 +7,9 @@ Purpose: Describe the purpose of this script.
 import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
-  userId: { tpye: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
   description: { type: String, required: true },
-  categoryId: { type: mongoose.Schema.Types.ObjectId, refs: "Category", required: true },
+  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
   slug: { type: String, required: true, unique: true},
   price: { type: mongoose.Schema.Types.Decimal128, required: true },
   quantity: { type: Number, required: true }

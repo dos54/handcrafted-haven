@@ -18,7 +18,7 @@ const links = [
   {
     id: '4',
     label: 'Profile',
-    href: '/profile',
+    href:`/profile/bobexample.com`
   },
 ];
 
