@@ -7,7 +7,6 @@ import TopTenLikes from "./components/topProducts";
 import ContactProducers from "./components/contactProducers";
 import ReviewForm from "./components/reviewForm";
 import SearchAvailableProducts from "./components/searchAvailableProducts";
-import Image from "next/image";
 
 
 export default function Products(){

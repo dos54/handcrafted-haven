@@ -33,7 +33,6 @@ export function ProductCard({id, userId, product_name, price, img, hover_img, li
                     <Image 
                         src={hover_img} alt={product_name} fill
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"
-                        fill
                     />
                 </div>
                 <p className="absolute top-5 right-5 bg-red-700 rounded-lg p-2 text-gray-100">${price.toLocaleString()}</p>

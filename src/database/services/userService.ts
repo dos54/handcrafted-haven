@@ -5,7 +5,7 @@ import User from "@/database/models/user";
 import { connectToDatabase } from "@/database";
 import { GenReview, Review } from "@/app/product/data/productsList";
 
-import { GeneralReview, ReviewSchema } from "../models/productReview";
+import { GeneralReview } from "../models/productReview";
 import Product from "@/database/models/product"
 import slugify from "slugify";
 
