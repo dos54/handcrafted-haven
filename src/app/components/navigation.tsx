@@ -21,7 +21,7 @@ const links = [
   {
     id: '4',
     label: 'Profile',
-    href:`/profile/666abc123def456789012345`
+    href:`/profile/bobexample.com`
   },
 ];
 

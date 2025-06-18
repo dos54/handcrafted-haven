@@ -26,7 +26,9 @@ export default async function ProfileComponent({
     return <p className={mulish.className}>No profile data available.</p>;
   }
  
-  const product = await getProductByUserId(profile.userId);
+  const products = await getProductByUserId(profile.userId);
+ 
+  console.log(products);
  
   return (
    
@@ -50,8 +52,11 @@ export default async function ProfileComponent({
         Favorites<br />  {profile.favorites ? profile.favorites.length : 0} items
       </p>
       </div>
+  
+       <ProductPerProfileComponent products ={products} />
+       <ProductPerProfileComponent products={products ?? []} />
     </div>
-   
+  
     
   );
 }

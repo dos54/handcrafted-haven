@@ -1,5 +1,6 @@
 import { Mulish } from "next/font/google";
 import Image from 'next/image';
+import Product from "@/database/models/product";
 import productPerProfile from "../[userId]/product";
 
 const mulish = Mulish({
@@ -23,7 +24,7 @@ export default async function ProductPerProfileComponent({
   products: Product[];
 }) {
   if (!products || products.length === 0) {
-    return <p className={mulish.className}>No product data available.</p>;
+      return <p className={`${mulish.className} ml-78`}>No product data available.</p>
   }
 
   return (
@@ -31,9 +32,9 @@ export default async function ProductPerProfileComponent({
       {products.map((product, index) => (
         <div
           key={index}
-          className="w-full max-w-[16rem] relative mb-20 bg-[#FFFFFF] p-3 shadow-lg rounded-lg md:w-72"
+          className="w-full max-w-[16rem] relative mb-20 bg-[#FFFFFF] p-3 shadow-lg rounded-lg md:w-72 "
         >
-          <div className="relative w-full h-50 group overflow-hidden rounded-t-md">
+          <div className="relative w-full h-50 group overflow-hidden rounded-t-md ">
             <Image
               src="/images/pure-julia-aFuFjTGoq6U-unsplash.jpg"
               alt={product.slug || "Product image"}

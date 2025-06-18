@@ -14,6 +14,6 @@ export default async function productPerProfile({
     notFound();
   }
 
-  // return <ProductPerProfileComponent product = {products} />;
+  return <ProductPerProfileComponent products = {products} />;
 }
 

@@ -86,14 +86,14 @@ export async function getProductReviews(productId: string) {
 }
 
 // Getting the products for each of the userID
-export async function getProductByUserId(userId:string) {
-  await connectToDatabase()
-  const user = await User.find({userId})
+
+export async function getProductByUserId(email: string) {
+  await connectToDatabase();
+
+  const user = await User.findOne({ email: email.trim().toLowerCase() });
   if (!user) return [];
-  return await Product.find( {userId} ).lean()
 
+  return await Product.find({ userId:user._id })
 }
-
-
 
 
