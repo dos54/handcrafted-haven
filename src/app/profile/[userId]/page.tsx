@@ -14,7 +14,8 @@ export default async function ProfilePage({
     notFound();
   }
 
-  return <ProfileComponent profile ={profile}/>
+  // return <ProfileComponent profile={profile}/>
+  return <p>Profile</p>
   
 
 }

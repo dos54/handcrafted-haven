@@ -1,11 +1,12 @@
 "use server"
 
 import mongoose, { isValidObjectId , ObjectId, Types } from "mongoose";
-import User from "../models/user";
+import User from "@/database/models/user";
 import { connectToDatabase } from "@/database";
 import { GenReview, Review } from "@/app/product/data/productsList";
 import { GeneralReview, ReviewSchema } from "../models/productReview";
 import Product from "@/database/models/product"
+import slugify from "slugify";
 
 
 /** Returns a read-only User object. */
@@ -26,6 +27,18 @@ export async function getUserByIdForUpdate(userId: string) {
     return await User.findById(userId)
   }
   else throw new Error('Invalid user ID')
+}
+
+export async function getOrCreateUserByEmail(email: string, name = "Unnamed user") {
+  await connectToDatabase()
+  let user = await User.findOne({ email })
+
+  if (!user) {
+    const username = slugify(name, { lower: true }) + "-" + Date.now()
+    user = await User.create({ email, name, username })
+  }
+
+  return user
 }
 
 export async function updateUserEmail(userId: string, newEmail: string) {
@@ -87,10 +100,10 @@ export async function getProductReviews(productId: string) {
 
 // Getting the products for each of the userID
 
-export async function getProductByUserId(email: string) {
+export async function getProductByUserEmail(email: string) {
   await connectToDatabase();
 
-  const user = await User.findOne({ email: email.trim().toLowerCase() });
+  const user = await User.findOne({ email: email});
   if (!user) return [];
 
   return await Product.find({ userId:user._id })

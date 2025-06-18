@@ -1,4 +1,4 @@
-import { getProductByUserId } from "@/database/services/userService";
+import { getProductByUserEmail } from "@/database/services/userService";
 import ProductPerProfileComponent from "../../profile/components/products";
 import { notFound } from "next/navigation";
 
@@ -9,7 +9,7 @@ export default async function productPerProfile({
 }) {
   const { userId } = await params
 
-  const products = await getProductByUserId(userId);
+  const products = await getProductByUserEmail(userId);
   if (!products) {
     notFound();
   }
