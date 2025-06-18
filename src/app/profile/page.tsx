@@ -31,7 +31,7 @@ export default async function ProfileComponent({
   console.log(products);
  
   return (
-   
+   <>
     <div key={profile.userId}>
     <div className="flex max-w-lg lg:max-w-full m-7 pl-48 pt-25">
      <Image 
@@ -56,7 +56,7 @@ export default async function ProfileComponent({
        <ProductPerProfileComponent products ={products} />
        <ProductPerProfileComponent products={products ?? []} />
     </div>
-  
+   </>
     
   );
 }
