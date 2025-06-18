@@ -12,6 +12,7 @@ export default async function GeneralReviewUi(){
             {
                 [...reviews].reverse().map((rev, idx)=>{
                     return(
+                        
                         <div key={idx} className="relative w-full p-2 mb-6 bg-white rounded-lg">
                             <p className="text-gray-500 font-semibold">{rev.username}</p>
                             <small className="mt-[-30px]">{rev.comment}</small>

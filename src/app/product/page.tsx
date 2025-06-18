@@ -3,11 +3,11 @@ export const dynamic = "force-dynamic"
 import Link from "next/link";
 import Image from "next/image";
 import GeneralReviewUi from "./components/generalReviews";
-import ProductYoutube from "./components/productYoutube";
 import TopTenLikes from "./components/topProducts";
 import ContactProducers from "./components/contactProducers";
 import ReviewForm from "./components/reviewForm";
 import SearchAvailableProducts from "./components/searchAvailableProducts";
+import Image from "next/image";
 
 
 export default function Products(){
@@ -35,8 +35,11 @@ export default function Products(){
                 {/* Contact */}
                 <div className="review mt-14 md:mt-0 w-full h-full md:h-110 p-3 md:flex justify-center rounded-lg items-end">
                     <div className="text-center md:mx-2 w-24 h-24 rounded-full border-2 border-white overflow-hidden">
-                        <Image className="w-full object-center cover mixauto" src="/images_holder.png" alt="Site Onwer's picture"  width={487}
-        height={422}/>
+
+
+                        <Image width={200} height={200}
+                            className="w-full object-center cover mixauto" src="/images_holder.png" alt="Site Onwer's picture" 
+                        />
 
                     </div>
 

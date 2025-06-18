@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 
 const ReviewSchemas = new mongoose.Schema({
   productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  //userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, uncomment when user id is added
+  likes:{type: Number},
   stars: { type: Number,  default: 0},
   comment: { type: String, required: true},
 }, { timestamps: true });
@@ -24,7 +25,7 @@ const ProductLikesSchema = new mongoose.Schema({
 
 
 
-export const ReviewSchema = mongoose.models.Review || mongoose.model("Review", ReviewSchemas);
+export const Review  = mongoose.models.Review || mongoose.model("Review", ReviewSchemas);
 export const ProductLike = mongoose.models.ProductLike || mongoose.model("ProductLike", ProductLikesSchema);
 export const GeneralReview = mongoose.models.GeneralReview || mongoose.model("GeneralReview", GenReviewShema);
 
