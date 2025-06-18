@@ -25,11 +25,11 @@ export function ProductCard({id, userId, product_name, price, img, hover_img, li
             <div className="w-full max-w-[16rem] relative mb-20 bg-[#FFFFFF] p-3 shadow-lg rounded-lg md:w-72 shadow-lg">
                 <div className="relative w-full h-50 group overflow-hidden rounded-t-md">
                     <Image 
-                        src={img} alt={product_name}
+                        src={img} alt={product_name} fill
                         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"                    
                     />
                     <Image 
-                        src={hover_img} alt={product_name}
+                        src={hover_img} alt={product_name} fill
                         className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"
                     />
                 </div>
@@ -60,6 +60,7 @@ export function TopProductCard({id, userId, product_name, img, likes}: Topproduc
                         className="w-full object-contain hover:scale-110 transition-transform duration-500 ease-in-out"
                         src={img}
                         alt={product_name}
+                        fill
                     />
                 </div>
 
