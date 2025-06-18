@@ -2,11 +2,14 @@ import { connectToDatabase } from "@/database"; //This is the database brother S
 import Product from "@/database/models/product";
 import Category from "@/database/models/category";
 import ProductImage from "@/database/models/product-image";
-import { getUserByIdForUpdate } from "@/database/services/userService"; //Use when user Id is added
+import { getUserByEmailForRead, getUserByIdForUpdate } from "@/database/services/userService"; //Use when user Id is added
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@/auth";
 
 export async function POST(req:NextRequest) {
+  const session = await auth()
+  const userEmail = session?.user?.email
 
     try {
         //gets the token from the http
@@ -26,7 +29,7 @@ export async function POST(req:NextRequest) {
         await connectToDatabase(); //This connect's to the database brother Steven Created
 
         //getting the userId
-        /*const userId = await getUserByIdForUpdate(token as string);*/ //uncomment when user Login has been added
+        const userId = await getUserByEmailForRead(userEmail as string)
 
         //setting and getting category
         let addedCategory = await Category.findOne({name: category})
@@ -72,7 +75,7 @@ export async function POST(req:NextRequest) {
                     categoryId: addedCategory._id, //passing in the created category id 
                     quantity, 
                     slug,
-                    /*userId*/ //uncomment when user Login has been added
+                    userId,
                 })
                 const addNewProduct = await newProduct.save() // save the New Product to data base
 

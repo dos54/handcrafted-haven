@@ -13,7 +13,7 @@ const links = [
   {
     id: '3',
     label: 'Add Products',
-    href: '/add-products'
+    href: '/add-product'
   },
   {
     id: '4',

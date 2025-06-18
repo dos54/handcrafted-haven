@@ -58,7 +58,6 @@ export default async function ProfileComponent() {
       </p>
       </div>
   
-       <ProductPerProfileComponent products ={products} />
        <ProductPerProfileComponent products={products ?? []} />
     </div>
    </>

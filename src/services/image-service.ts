@@ -5,7 +5,7 @@ import path from "path";
 import slugify from "slugify"
 
 // The maximim size of image allowed
-const MAX_SIZE = 5 * 1024 * 1024 // 5 MB
+const MAX_SIZE = 100 * 1024 * 1024 // 100 MB
 
 /**
  * Optimize an image and upload it to DigitalOcean

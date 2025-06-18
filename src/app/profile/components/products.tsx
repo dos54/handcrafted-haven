@@ -16,6 +16,7 @@ interface Product {
   slug: string;
   price: string; 
   quantity: number;
+  productPicture: string;
 }
 
 export default async function ProductPerProfileComponent({
@@ -36,7 +37,7 @@ export default async function ProductPerProfileComponent({
         >
           <div className="relative w-full h-50 group overflow-hidden rounded-t-md ">
             <Image
-              src="/images/pure-julia-aFuFjTGoq6U-unsplash.jpg"
+              src={product?.productPicture}
               alt={product.slug || "Product image"}
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out"
               width={700}
@@ -55,10 +56,10 @@ export default async function ProductPerProfileComponent({
             <div className="text-gray-500 font-[cursive] text-sm">
               <i className="fa fa-heart-o text-red-600"></i> 
             </div>
-            <p className="text-gray-800 font-black font-mono">${product.price}</p>
-            <p className="text-gray-700 font-black font-mono">{product.description}</p>
+            <p className="text-gray-800 font-black font-mono">${product.price.toString()}</p>
+            <p className="text-gray-700 font-black font-mono">{product.description.toString()}</p>
             <small className="text-gray-500 font-mono underline hover:text-gray-700">
-              <a href={`mailto:${product.userId}`}>{product.userId}</a>
+              <a href={`mailto:${product.userId.toString()}`}>{product.userId.toString()}</a>
             </small>
             <button className="text-white mt-6 mb-2 p-2 rounded-full font-semibold w-full bg-gray-700 hover:bg-green-500 duration-200 ease-in-out">
               Buy
