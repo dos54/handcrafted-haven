@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import Header from './components/header';
 import Footer from './components/footer';
 import Navigation from './components/navigation';
+import Providers from '@/components/providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,16 +35,14 @@ export default function RootLayout({ children }: MyProps) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="main-container">
-          <div>
-            <Navigation />
-          </div>
-          <div>
-            <Header />
+        <Providers>
+          <Navigation />
+          <Header />
+          <main>
             {children}
-            <Footer />
-          </div>
-        </div>
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
